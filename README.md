@@ -2,7 +2,8 @@
 Modding with Kaupenjoe NeoForge for Minecraft 26.X
 =======
 
-This GitHub Repository is the result of my progression while following Modding By Kaupenjoe: NeoForge Modding for Minecraft 26.X
+This GitHub Repository is the result of my progression while following:<br>
+Modding By Kaupenjoe: NeoForge Modding for Minecraft 26.X
 
 The Source Code will always be freely available under the MIT-License.
 
