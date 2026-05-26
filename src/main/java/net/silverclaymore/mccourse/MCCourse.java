@@ -1,5 +1,7 @@
 package net.silverclaymore.mccourse;
 
+import net.silverclaymore.mccourse.creativetab.ModCreativeModeTabs;
+import net.silverclaymore.mccourse.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -32,9 +34,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(MCCourse.MOD_ID)
 public class MCCourse {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mccourse";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "mccourse" namespace
     //public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MOD_ID);
@@ -64,12 +64,14 @@ public class MCCourse {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+
         // Register the Deferred Register to the mod event bus so blocks get registered
         //BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        //ITEMS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so tabs get registered
-        //CREATIVE_MODE_TABS.register(modEventBus);
+
+        ModItems.register(modEventBus);
+
+        ModCreativeModeTabs.register(modEventBus);
+
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -89,6 +91,17 @@ public class MCCourse {
 //        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
 //            event.accept(EXAMPLE_BLOCK_ITEM);
 //        }
+        if(event.getTabKey()== CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.ZIRCON);
+            event.accept(ModItems.RAW_ZIRCON);
+            //event.accept(ModItems.BLACK_OPAL);
+            //event.accept(ModItems.RAW_BLACK_OPAL);
+            //event.accept(ModItems.BISMUTH);
+            //event.accept(ModItems.RAW_BISMUTH);
+            //event.accept(ModItems.ALEXANDRITE);
+            //event.accept(ModItems.RAW_ALEXANDRITE);
+        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
