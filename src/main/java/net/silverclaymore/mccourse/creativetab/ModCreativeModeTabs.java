@@ -37,13 +37,28 @@ public class ModCreativeModeTabs {
             }
     );
 
+    private static final Map<String, DeferredBlock<?>[]> BLOCK_GROUPS = Map.of(
+            "zircon", new DeferredBlock<?>[]{
+                    ModBlocks.ZIRCON_BLOCK, ModBlocks.RAW_ZIRCON_BLOCK
+            }
+    );
+
 
     public static void createCreativeTab(String tabKeyStart, DeferredItem<?> item ) {
         CREATIVE_MODE_TABS.register(tabKeyStart + "_items_tab", () -> CreativeModeTab.builder()
                 .title(Component.translatable("creativetab.mccourse." + tabKeyStart + "_items"))
                 .icon(() -> new ItemStack(item.get()))
-                .displayItems((pParameters, pOutput) -> addElements(pOutput, ITEM_GROUPS.get(tabKeyStart)))
+                .displayItems((parameters, output) -> addElements(output, ITEM_GROUPS.get(tabKeyStart)))
                 //.withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourseMod.MOD_ID, tabKeyStart + "_items_tab"))
+                .build());
+    }
+
+    public static void createCreativeTab(String tabKeyStart, DeferredBlock<?> block ) {
+        CREATIVE_MODE_TABS.register(tabKeyStart + "_blocks_tab", () -> CreativeModeTab.builder()
+                .title(Component.translatable("creativetab.mccourse." + tabKeyStart + "_blocks"))
+                .icon(() -> new ItemStack(block.get()))
+                .displayItems((parameters, output) -> addElements(output, BLOCK_GROUPS.get(tabKeyStart)))
+                //.withTabsBefore(ResourceLocation.fromNamespaceAndPath(MCCourse.MOD_ID, tabKeyStart + "_items_tab"))
                 .build());
     }
 
@@ -57,6 +72,7 @@ public class ModCreativeModeTabs {
 //        createCreativeTab("pink_garnet", ModItems.PINK_GARNET);
 
         // Register block-based creative tabs
+        createCreativeTab("zircon", ModBlocks.ZIRCON_BLOCK);
 //        createCreativeTab("bismuth", ModBlocks.BISMUTH_BLOCK);
 //        createCreativeTab("black_opal", ModBlocks.BLACK_OPAL_BLOCK);
 //        createCreativeTab("pink_garnet", ModBlocks.PINK_GARNET_BLOCK);

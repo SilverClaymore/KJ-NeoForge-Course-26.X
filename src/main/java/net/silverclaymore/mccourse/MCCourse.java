@@ -1,5 +1,6 @@
 package net.silverclaymore.mccourse;
 
+import net.silverclaymore.mccourse.block.ModBlocks;
 import net.silverclaymore.mccourse.creativetab.ModCreativeModeTabs;
 import net.silverclaymore.mccourse.item.ModItems;
 import org.slf4j.Logger;
@@ -69,6 +70,7 @@ public class MCCourse {
         //BLOCKS.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
 
