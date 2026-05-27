@@ -39,7 +39,8 @@ public class ModCreativeModeTabs {
 
     private static final Map<String, DeferredBlock<?>[]> BLOCK_GROUPS = Map.of(
             "zircon", new DeferredBlock<?>[]{
-                    ModBlocks.ZIRCON_BLOCK, ModBlocks.RAW_ZIRCON_BLOCK
+                    ModBlocks.ZIRCON_BLOCK, ModBlocks.RAW_ZIRCON_BLOCK, ModBlocks.ZIRCON_ORE,
+                    ModBlocks.ZIRCON_DEEPSLATE_ORE, ModBlocks.ZIRCON_END_ORE, ModBlocks.ZIRCON_NETHER_ORE
             }
     );
 

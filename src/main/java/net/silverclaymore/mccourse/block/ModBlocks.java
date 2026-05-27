@@ -1,8 +1,10 @@
 package net.silverclaymore.mccourse.block;
 
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
@@ -27,6 +29,29 @@ public class ModBlocks {
             properties -> new Block(properties.strength(3.0F)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> ZIRCON_ORE = registerBlock("zircon_ore",
+            properties -> new DropExperienceBlock(UniformInt.of(2,4),
+                    properties.strength(3.0F)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> ZIRCON_DEEPSLATE_ORE = registerBlock("zircon_deepslate_ore",
+            properties -> new DropExperienceBlock(UniformInt.of(4,6),
+                    properties.strength(3.0F)
+                            .requiresCorrectToolForDrops()
+                            .sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> ZIRCON_END_ORE = registerBlock("zircon_end_ore",
+            properties -> new DropExperienceBlock(UniformInt.of(2,4),
+                    properties.strength(3.0F)
+                            .requiresCorrectToolForDrops()
+                            .sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> ZIRCON_NETHER_ORE = registerBlock("zircon_nether_ore",
+            properties -> new DropExperienceBlock(UniformInt.of(2,4),
+                    properties.strength(3.0F)
+                            .requiresCorrectToolForDrops()
+                            .sound(SoundType.STONE)));
+
+
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
