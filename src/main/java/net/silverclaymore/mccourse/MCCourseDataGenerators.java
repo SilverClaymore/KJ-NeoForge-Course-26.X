@@ -10,6 +10,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.silverclaymore.mccourse.datagen.ModBlockLootTableProvider;
 import net.silverclaymore.mccourse.datagen.ModBlockTagProvider;
 import net.silverclaymore.mccourse.datagen.ModModelProvider;
+import net.silverclaymore.mccourse.datagen.ModRecipeProvider;
 
 import java.util.Collections;
 import java.util.List;
@@ -29,5 +30,6 @@ public class MCCourseDataGenerators {
 
         generator.addProvider(true, new ModBlockTagProvider(packOutput,lookupProvider));
 
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
     }
 }
