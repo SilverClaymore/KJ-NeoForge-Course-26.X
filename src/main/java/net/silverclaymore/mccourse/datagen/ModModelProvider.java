@@ -21,6 +21,7 @@ public class ModModelProvider extends ModelProvider {
         /* ITEMS */
         itemModels.generateFlatItem(ModItems.ZIRCON.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_ZIRCON.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.CHISEL.get(), ModelTemplates.FLAT_ITEM);
 
         /* BLOCKS */
         blockModels.createTrivialCube(ModBlocks.ZIRCON_BLOCK.get());

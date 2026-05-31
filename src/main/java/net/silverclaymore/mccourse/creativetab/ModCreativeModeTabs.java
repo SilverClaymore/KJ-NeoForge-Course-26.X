@@ -33,7 +33,7 @@ public class ModCreativeModeTabs {
 
     private static final Map<String, DeferredItem<?>[]> ITEM_GROUPS = Map.of(
             "zircon", new DeferredItem<?>[]{ //From Neoforge mccourse
-                    ModItems.ZIRCON, ModItems.RAW_ZIRCON
+                    ModItems.ZIRCON, ModItems.RAW_ZIRCON, ModItems.CHISEL
             }
     );
 
