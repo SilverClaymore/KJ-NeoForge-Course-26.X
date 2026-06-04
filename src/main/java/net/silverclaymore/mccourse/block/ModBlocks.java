@@ -11,6 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.silverclaymore.mccourse.MCCourse;
+import net.silverclaymore.mccourse.block.custom.MagicBlock;
 import net.silverclaymore.mccourse.item.ModItems;
 
 
@@ -51,6 +52,11 @@ public class ModBlocks {
                             .requiresCorrectToolForDrops()
                             .sound(SoundType.STONE)));
 
+    public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock("magic_block",
+            properties -> new MagicBlock(
+                    properties.strength(2.0F)
+                            .noLootTable()
+                            .sound(SoundType.AMETHYST)));
 
 
     private static <T extends Block>DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
